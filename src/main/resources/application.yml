@@ -1,0 +1,49 @@
+server:
+  port: 8081
+  servlet:
+    context-path: /
+    encoding:
+      charset: UTF-8
+      enabled: true
+      force: true
+    session:
+      timeout: 60000
+
+spring:
+  datasource:
+    driver-class-name: org.h2.Driver
+    url: jdbc:h2:file:./emdata/dispatch
+    username: sa
+    password: 123456
+    hikari:
+      maximum-pool-size: 1
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+  h2:
+    console:
+      path: /h2-console
+      enabled: true
+      settings:
+        trace: true
+        web-allow-others: true
+
+  servlet:
+    multipart:
+      max-file-size: 60MB
+      max-request-size: 60MB
+      enabled: true
+
+logging:
+  level:
+    root: info
+  file:
+    path: logs
+  logback:
+    rollingpolicy:
+      max-file-size: 10MB
+      max-history: 7
+      total-size-cap: 200MB
+      clean-history-on-start: on
+
